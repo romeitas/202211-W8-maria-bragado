@@ -21,6 +21,8 @@
     "license": "ISC",
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+        "@testing-library/dom": "^8.19.0",
+        "@testing-library/jest-dom": "^5.16.5",
         "@types/jest": "^29.2.3",
         "@types/node": "^18.11.9",
         "@typescript-eslint/eslint-plugin": "^5.44.0",
