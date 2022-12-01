@@ -50,16 +50,4 @@ export const series = [
         emmies: 0,
     },
 ];
-
-export type SeriesType = Array<Series>;
-
-export type Series = {
-    id: number;
-    name: string;
-    creator: string;
-    year: number;
-    poster: string;
-    watched: boolean;
-    score: number;
-    emmies: number;
-};
+export const initializeTasks = () => series;

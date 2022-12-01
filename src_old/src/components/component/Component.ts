@@ -2,43 +2,25 @@ export abstract class Component {
     protected template!: string;
     private element!: Element | null;
 
-    render() {
-        return this.element;
-    }
-
-    protected innRender(selector: string) {
-        try {
-            this.element = this.selectElement(selector);
-            this.element.innerHTML += this.template;
-        } catch (error) {
-            this.element = null;
-        }
-
-        return this.element;
-    }
-    protected cleanHtml(selector: string) {
-        try {
-            this.element = this.selectElement(selector);
-            this.element.innerHTML = '';
-        } catch (error) {
-            this.element = null;
-        }
-        return this.element;
-    }
-    protected outRender(selector: string) {
-        try {
-            this.element = this.selectElement(selector);
-            this.element.outerHTML = this.template;
-        } catch (error) {
-            this.element = null;
-        }
-        return this.element;
-    }
-    private selectElement(selector: string) {
-        const error = new Error('Invalid selector');
-        if (!selector) throw error;
+    render(selector: string) {
         const e = document.querySelector(selector);
-        if (e === null) throw error;
-        return e;
+        if (e === null) return;
+        this.element = e;
+        this.element.innerHTML = this.template;
+    }
+
+    renderAdd(selector: string, template: string) {
+        if (!selector) return false;
+        const element = document.querySelector(selector);
+        if (element === null) return false;
+        element.innerHTML += template;
+        return true;
+    }
+    renderOuter(selector: string, template: string) {
+        if (!selector) return false;
+        const element = document.querySelector(selector);
+        if (element === null) return false;
+        element.outerHTML = template;
+        return true;
     }
 }

@@ -26,12 +26,6 @@ export class Task implements Series {
         public emmies: number
     ) {
         this.id = Task.generateId();
-        this.name = name;
-        this.creator = creator;
-        this.year = year;
-        this.poster = poster;
         this.watched = false;
-        this.score = score;
-        this.emmies = emmies;
     }
 }
